@@ -17,10 +17,15 @@ public class App
         try {
             session.beginTransaction();
 
-            Person person = session.get(Person.class, 1);
+            Person person1 = new Person("Alex", 23);
+            Person person2 = new Person("Tim", 34);
+            Person person3 = new Person("Lolly", 45);
+            Person person4 = new Person("Trevor", 56);
 
-            System.out.println(person.getName());
-            System.out.println(person.getAge());
+            session.persist(person1);
+            session.persist(person2);
+            session.persist(person3);
+            session.persist(person4);
 
             session.getTransaction().commit();
         } finally {
