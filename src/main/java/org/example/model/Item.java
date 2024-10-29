@@ -20,8 +20,9 @@ public class Item {
 
     public Item() {}
 
-    public Item(String itemName) {
+    public Item(String itemName, Person owner) {
         this.itemName = itemName;
+        this.owner = owner;
     }
 
     public int getId() {
@@ -52,8 +53,6 @@ public class Item {
     public String toString() {
         return "Item{" +
                 "id=" + id +
-                ", itemName='" + itemName + '\'' +
-                ", owner=" + owner +
-                '}';
+                ", itemName='" + itemName + '}';
     }
 }
