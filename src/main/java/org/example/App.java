@@ -17,17 +17,13 @@ public class App
         try {
             session.beginTransaction();
 
-            Person person1 = new Person("Alex", 23);
-            Person person2 = new Person("Tim", 34);
-            Person person3 = new Person("Lolly", 45);
-            Person person4 = new Person("Trevor", 56);
+            Person person = new Person("Alex", 33);
 
-            session.persist(person1);
-            session.persist(person2);
-            session.persist(person3);
-            session.persist(person4);
+            session.persist(person);
 
             session.getTransaction().commit();
+
+            System.out.println(person.getId());
         } finally {
             sessionFactory.close();
         }
