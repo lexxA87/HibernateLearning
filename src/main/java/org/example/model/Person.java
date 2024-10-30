@@ -3,6 +3,7 @@ package org.example.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,7 +15,7 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToMany(mappedBy = "owner")
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.PERSIST)
     private List<Item> items;
 
     @Column(name = "name")
@@ -28,6 +29,14 @@ public class Person {
     public Person(String name, int age) {
         this.name = name;
         this.age = age;
+    }
+
+    public void addItem(Item item) {
+        if (this.items == null) {
+            this.items = new ArrayList<>();
+        }
+        this.items.add(item);
+        item.setOwner(this);
     }
 
     public int getId() {
