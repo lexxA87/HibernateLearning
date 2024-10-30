@@ -23,9 +23,10 @@ public class Movie {
 
     public Movie() {}
 
-    public Movie(String name, int yearOfProduction) {
+    public Movie(String name, int yearOfProduction, Director director) {
         this.name = name;
         this.yearOfProduction = yearOfProduction;
+        this.director = director;
     }
 
     public int getId() {
@@ -62,9 +63,6 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "Movie{" +
-                "name='" + name + '\'' +
-                ", yearOfProduction=" + yearOfProduction +
-                '}';
+        return "'" + name + '\'' + ", " + yearOfProduction;
     }
 }
