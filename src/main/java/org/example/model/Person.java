@@ -15,6 +15,7 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    // default fetchType = LAZY
     @OneToMany(mappedBy = "owner", cascade = CascadeType.PERSIST)
     private List<Item> items;
 
